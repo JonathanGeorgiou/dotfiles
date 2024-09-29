@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
-local utils = {}
+local theme = {}
 -- Use wezterm get_appearance function to figure out if winow is in Dark mode or Light mode
-utils.get_appearance = function()
+theme.get_appearance = function()
   if wezterm.gui then
     return wezterm.gui.get_appearance()
   end
@@ -9,12 +9,12 @@ utils.get_appearance = function()
 end
 
 -- Set appropriate theme based on appearance
-utils.scheme_for_appearance = function(appearance)
+theme.scheme_for_appearance = function(appearance, light_theme, dark_theme)
   if appearance:find 'Dark' then
-    return 'catppuccin-mocha'
+    return dark_theme
   else
-    return 'catppuccin-latte'
+    return light_theme
   end
 end
 
-return utils
+return theme

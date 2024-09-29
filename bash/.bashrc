@@ -15,7 +15,7 @@ shopt -s checkjobs
 alias bevy='toolbox run -c bevy'
 #alias cat='bat'
 #alias catp='bat -P'
-alias wezterm='flatpak run org.wezfurlong.wezterm'
+#alias wezterm='flatpak run org.wezfurlong.wezterm'
 alias eza='eza '\''--group-directories-first'\'' '\''--header'\'''
 alias la='eza -a'
 alias ll='eza -la'
