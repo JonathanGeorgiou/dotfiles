@@ -1,9 +1,9 @@
-######################
-ColossalNvim
-######################
+# ColossalNvim
 
 My Neovim config based on the wonderful [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-# TODO
+
+## TODO
+
 - [x] Comment.nvim
 - [x] open brackets/qutoes automatically close solved by auto-pairs.nvim
 - [x] Markdown something
@@ -20,15 +20,18 @@ My Neovim config based on the wonderful [kickstart.nvim](https://github.com/nvim
 - [ ] make lualine pretty
 - [ ] figure out neotree keymaps (unhiding files etc)
 
-# Things I have done
+## Things I have done
+
 - installed Catppuccin Plasma colorschemes
 - edited crontab with the following
+
 ```bash
 0 20 * * * plasma-apply-colorscheme CatppuccinMochaFlamingo >/dev/null 2>&1
 0  7 * * * plasma-apply-colorscheme CatppuccinLatteFlamingo >/dev/null 2>&1
 ```
-This will cause my system colorscheme to automatically switch at 8pm to dark mode 
-NOTE this doesn't work and isnt really needed, I have just assigned a kde shortcut of 
+
+This will cause my system colorscheme to automatically switch at 8pm to dark mode
+NOTE this doesn't work and isnt really needed, I have just assigned a
+kde shortcut of
 `META + SHIFT + d` - Dark Mode
 `META + SHIFT + l` - Light Mode
-

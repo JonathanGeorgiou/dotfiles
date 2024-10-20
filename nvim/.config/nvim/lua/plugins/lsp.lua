@@ -163,7 +163,20 @@ return { -- LSP Configuration & Plugins
     local servers = {
       -- clangd = {},
       -- gopls = {},
-      -- pyright = {},
+      pyright = {},
+      htmx = {
+        filetypes = {
+        'html',
+        'htmldjango',
+        },
+      },
+      -- html = {},
+      jinja_lsp = {
+        filetypes = { 'htmldjango', }
+      },
+      tailwindcss = {
+        filetypes = { 'htmldjango' }
+      },
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
