@@ -8,8 +8,9 @@ if wezterm.config_builder then
 end
 
 -- General settings
+config.front_end = "OpenGL"
 config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "NONE"
+--config.window_decorations = "NONE"
 
 -- Theming
 local light_theme = "Catppuccin Latte"

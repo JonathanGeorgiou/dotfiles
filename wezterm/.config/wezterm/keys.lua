@@ -32,6 +32,7 @@ keys = {
 },
 { key = ".", mods = "LEADER", action = act.SwitchWorkspaceRelative(1) },
 { key = ",", mods = "LEADER", action = act.SwitchWorkspaceRelative(-1) },
+{ key = "CapsLock", mods = "NONE", action = act.SendKey { key = 'Escape'} },
 {
   mods = "LEADER",
   key = "c",
