@@ -22,7 +22,7 @@ alias ll='eza -la'
 alias ls='eza'
 alias lt='eza --tree'
 alias search-flatpak='flatpak remote-ls | grep -i'
-alias vi='clevernvim.sh'
+alias vi='source clevernvim.sh'
 alias ansible-kde='ansible-playbook -i inventory start.yml --ask-become-pass'
 alias lg='lazygit'
 
@@ -34,3 +34,15 @@ if [ -f /etc/bashrc ]; then
 fi
 
 eval "$(starship init bash)"
+
+if [[ -z "$ZELLIJ" ]]; then
+    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+        zellij attach -c
+    else
+        zellij
+    fi
+
+    if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+        exit
+    fi
+fi

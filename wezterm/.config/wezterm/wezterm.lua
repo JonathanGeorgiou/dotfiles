@@ -17,7 +17,7 @@ local dark_theme = "Catppuccin Mocha"
 config.color_scheme = theme.scheme_for_appearance(theme.get_appearance(), light_theme, dark_theme)
 
 -- Set keymaps to those defines in keys.lua file
-config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 1000 }
+config.leader = { key = "#", mods = "ALT", timeout_milliseconds = 1000 }
 config.keys = keys
 
 -- Tab bar
