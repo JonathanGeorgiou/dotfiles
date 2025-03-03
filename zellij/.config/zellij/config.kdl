@@ -143,15 +143,14 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
+        bind "Alt h" { MoveFocus "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
+        bind "Alt l" { MoveFocus "right"; }
         bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
-        bind "Alt ." { GoToNextTab; }
-        bind "Alt ," { GoToPreviousTab; }
+        bind "Alt t" { NewTab; }
+        bind "Alt ." {GoToNextTab; }
+        bind "Alt ," {GoToPreviousTab; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
@@ -327,7 +326,7 @@ default_mode "locked"
 // that will be used by default if this option is not set.
 // Examples:
 //
-// copy_command "xclip -selection clipboard" // x11
+copy_command "xclip -selection clipboard" // x11
 // copy_command "wl-copy"                    // wayland
 // copy_command "pbcopy"                     // osx
 // 
