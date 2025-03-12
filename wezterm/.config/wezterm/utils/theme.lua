@@ -13,7 +13,7 @@ theme.scheme_for_appearance = function(appearance, light_theme, dark_theme)
   if appearance:find 'Dark' then
     return dark_theme
   else
-    return dark_theme
+    return light_theme
   end
 end
 
