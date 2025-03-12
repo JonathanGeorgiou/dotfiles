@@ -30,6 +30,8 @@ return { -- Autoformat
       python = { 'isort', 'black' },
       html = { 'prettier' },
       markdown = { 'prettierd', 'prettier', 'jupytext' },
+      sql = { 'sqlfluff' },
+      go = { 'gofumpt', 'goimports' },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.

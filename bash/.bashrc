@@ -25,6 +25,7 @@ alias search-flatpak='flatpak remote-ls | grep -i'
 alias vi='source clevernvim.sh'
 alias ansible-kde='ansible-playbook -i inventory start.yml --ask-become-pass'
 alias lg='lazygit'
+alias code='flatpak run com.visualstudio.code'
 
 export PATH=$PATH:~/.local/bin/:~/.cargo/bin/
 

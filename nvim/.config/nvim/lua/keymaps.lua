@@ -1,6 +1,6 @@
-local utils = require "utils"
+local utils = require 'utils'
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>x', utils.bufremove, { desc = 'Close current buffer'})
+vim.keymap.set('n', '<leader>x', utils.bufremove, { desc = 'Close current buffer' })
 -- Oil.nvim
 utils.map('n', '-', ':Oil --float<CR>', {})
 -- Diagnostic keymaps

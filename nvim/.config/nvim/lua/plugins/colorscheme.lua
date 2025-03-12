@@ -25,7 +25,7 @@ return { -- You can easily change to a different colorscheme.
     end,
     set_light_mode = function()
       vim.api.nvim_set_option("background", "light")
-      vim.cmd("colorscheme catppuccin-latte")
+      vim.cmd("colorscheme catppuccin-mocha")
     end,
   },
   }
