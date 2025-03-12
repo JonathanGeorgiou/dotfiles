@@ -5,25 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"os/exec"
 	"regexp"
 	"strings"
 	"time"
 )
-
-func getWeekCommencingDate(today time.Time) time.Time {
-	if today.Weekday() == time.Monday {
-		return today
-	}
-
-	weekday := today.Weekday()
-	daysToSubtract := int(weekday) - int(time.Monday)
-	if daysToSubtract < 0 {
-		daysToSubtract += 7
-	}
-
-	return today.AddDate(0, 0, -daysToSubtract)
-}
 
 // Function to extract incomplete tasks with their subheadings
 func extractIncompleteTasks(noteFile string) []string {
@@ -45,13 +30,13 @@ func extractIncompleteTasks(noteFile string) []string {
 		line := scanner.Text()
 
 		// Check for a subheading (e.g., ### Work)
-		if strings.HasPrefix(line, "### ") {
+		if strings.HasPrefix(line, "## TODO") {
 			// If we already have a subheading, append it with tasks
 			if currentSubheading != "" {
 				result.WriteString("\n")
 			}
 			currentSubheading = line
-			result.WriteString(currentSubheading + "\n")
+			result.WriteString("\n")
 		}
 
 		// Check for incomplete tasks under the current subheading
@@ -76,16 +61,12 @@ func main() {
 	// Get today's and yesterday's date
 	today := time.Now()
 	todayStr := today.Format("Monday, 02 January 2006")
-	monthStr := today.Format("January-06")
-	dayOfWeek := today.Format("Mon-02-Jan")
-	yesterday := today.AddDate(0, 0, -1).Format("Mon-02-Jan")
-
-	previousMonday := getWeekCommencingDate(today)
-
-	wcDate := fmt.Sprintf("wc-%02d", previousMonday.Day())
+	monthStr := today.Format("01-January-06")
+	dayOfWeek := today.Format("02-Jan-2006")
+	yesterday := today.AddDate(0, 0, -1).Format("02-Jan-2006")
 
 	// Paths
-	noteDir := fmt.Sprintf("%s/%s/%s", notesDir, monthStr, wcDate)
+	noteDir := fmt.Sprintf("%s/%s", notesDir, monthStr)
 	// Create dir if it doesn't exist
 	err := os.MkdirAll(noteDir, os.ModePerm)
 	if err != nil {
@@ -137,12 +118,5 @@ func main() {
 
 		fmt.Printf("Note for %s created at %s\n", todayStr, noteFile)
 
-		// Open the newly created note file in the default editor
-		err = exec.Command("zellij", "new-session", "--working-dir", noteDir, "nvim", noteFile).Start()
-		if err != nil {
-			fmt.Println("Error opening note in default editor:", err)
-		} else {
-			fmt.Println("Note opened in default editor")
-		}
 	}
 }
